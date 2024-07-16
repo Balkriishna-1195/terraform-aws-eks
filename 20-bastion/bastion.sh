@@ -39,7 +39,7 @@ VALIDATE $? "Docker installation"
 # eksctl
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 mv /tmp/eksctl /usr/local/bin
-# eksctl version
+eksctl version
 VALIDATE $? "eksctl installation"
 
 # kubectl
@@ -49,10 +49,10 @@ mv kubectl /usr/local/bin/kubectl
 VALIDATE $? "kubectl installation"
 
 # Helm
-# curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-# chmod 700 get_helm.sh
-# ./get_helm.sh
-# VALIDATE $? "helm installation"
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+VALIDATE $? "helm installation"
 
 dnf install mysql -y
 VALIDATE $? "MySQL installation"
